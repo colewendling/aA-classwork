@@ -1,68 +1,82 @@
+module Searchable
+
+  def dfs(target = nil, &prc)
+    raise "Need a proc or target" if [target, prc].none?
+    prc ||= Proc.new { |node| node.value == target }
+
+    return self if prc.call(self)
+
+    children.each do |child|
+      result = child.dfs(&prc)
+      return result unless result.nil?
+    end
+
+    nil
+  end
+
+  def bfs(target = nil, &prc)
+    raise "Need a proc or target" if [target, prc].none?
+    prc ||= Proc.new { |node| node.value == target }
+
+    nodes = [self]
+    until nodes.empty?
+      node = nodes.shift
+
+      return node if prc.call(node)
+      nodes.concat(node.children)
+    end
+
+    nil
+  end
+
+  def count
+    1 + children.map(&:count).inject(:+)
+  end
+end
+
+
 class PolyTreeNode
+include Searchable
 
-    attr_accessor :value
-    attr_reader :parent
+  attr_accessor :value
+  attr_reader :parent
 
-    def initialize(value = nil)       
-        @value = value 
-        @parent = nil
-        @children = []
-    end    
+  def initialize(value = nil)
+    @value, @parent, @children = value, nil, []
+  end
 
-    def children
-        @children.dup
+  def children
+    @children.dup
+  end
+
+  def parent=(parent)
+    return if self.parent == parent
+  
+    if self.parent
+      self.parent._children.delete(self)
     end
 
-    def parent=(parent) 
-        #@parent = @children
-        #@children[1] = 
-        return if self.parent == parent # not running script if new parent is old parent
+    @parent = parent
+    self.parent._children << self unless self.parent.nil?
 
+    self
+  end
 
-        #self is the PolytreeNode instance
+  def add_child(child)
+    child.parent = self
+  end
 
-        # self = #<PolyTreeNode:0x00007fdf3a026478 
-        # @value="a", @children=["b", "c"], @parent=nil>
-
-        #           "a"
-        #        "b"   "c"
-
-        # node.parent = "new parent"
-
-        # 1. if node has parent, remove previous 
-        #     parent
-
-        if self.parent # continues if node has a parent
-            self.parent._children.delete(self)
-        end
-
-         @parent = parent
-        self.parent._children << self unless self.parent.nil?
-
-         self #modified self with new parent
+  def remove_child(child)
+    if child && !self.children.include?(child)
+      raise "Tried to remove node that isn't a child"
     end
 
+    child.parent = nil
+  end
 
-    # b = #<PolyTreeNode:0x00007fdf3a026478 
-    # @value="b", @children=["d", "e"], @parent="a">
-
-
-    # w = #<PolyTreeNode:0x00007fdf3a026478 
-    # @value="w", @children=["x", "y"], @parent="b">
-
-
-
-    # b.add_child(w)
-
-    # my_node.add_child("d")  <---- new child
-
-    def add_child(child)
-        #return if child.parent == self
-        child.parent = self
-    end
-
-    def _children
-       @children
-    end
-
+  protected
+ 
+  def _children
+    @children
+  end
 end
