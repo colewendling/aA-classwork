@@ -68,7 +68,7 @@ include Searchable
 
   def remove_child(child)
     if child && !self.children.include?(child)
-      raise "Tried to remove node that isn't a child"
+      raise "node is not a child"
     end
 
     child.parent = nil
