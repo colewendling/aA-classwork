@@ -1,6 +1,8 @@
 require "colorize"
 require_relative "cursor"
 
+# Phase III: "DISPLAY" - AAO W4D3
+
 class Display
 
   attr_reader :board, :notifications, :cursor

@@ -23,6 +23,8 @@ class Piece
     raise NotImplementedError
   end
 
+ # Phase V: "Piece#valid_moves" - AAO W4D3
+
   def valid_moves
     moves.reject { |end_pos| move_into_check?(end_pos) }
   end
