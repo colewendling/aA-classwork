@@ -72,5 +72,51 @@ def second_anagram?(str, target)
     tar_arr.empty?
 end
 
-p second_anagram?("elvis", "lives")    #=> if second_str = ""  => true
-p second_anagram?("gizmo", "sally")    #=> if second_str = "asd"  => false
+#p second_anagram?("elvis", "lives")    #=> if second_str = ""  => true
+#p second_anagram?("gizmo", "sally")    #=> if second_str = "asd"  => false
+
+def third_anagram?(str1, str2)
+   
+    
+    #str1.chars.sort == str2.chars.sort  
+
+    alpha = ("a".."z").to_a
+    sorted = false
+    arr1 = str1.chars
+    arr2 = str2.chars
+
+    while !sorted
+        sorted = true
+        (0...arr1.length - 1).each do |i|
+            if alpha.index(arr1[i]) > alpha.index(arr1[i + 1])     # n^2
+                arr1[i], arr1[i + 1] = arr1[i + 1], arr1[i]
+                sorted = false
+            end
+        end
+    end
+
+    sorted = false
+
+    while !sorted
+        sorted = true
+        (0...arr2.length - 1).each do |i|
+            if alpha.index(arr2[i]) > alpha.index(arr2[i + 1])
+                arr2[i], arr2[i + 1] = arr2[i + 1], arr2[i]
+                sorted = false
+            end
+        end
+    end
+    
+    arr1.join('') == arr2.join('')
+
+end
+
+p third_anagram?("elvis", "lives")# => true
+p third_anagram?("gizmo", "sally")#=> false
+p third_anagram?("gizmm", "sally")#=> false
+
+#Write a method #third_anagram? that solves the problem by sorting both strings alphabetically. The strings are then anagrams if and only if the sorted versions are the identical.
+
+#What is the time complexity of this solution? Is it better or worse than #second_anagram??
+
+
