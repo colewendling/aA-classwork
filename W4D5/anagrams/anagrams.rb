@@ -34,15 +34,43 @@ def first_anagram?(str, target)
     false
 end
 
-p first_anagram?("elvishhixs", "lives")    #=> true
+# p first_anagram?("elvishhixs", "lives")    #=> true
 
 
 
 
-p first_anagram?("gizmo", "sally")    #=> false
+# p first_anagram?("gizmo", "sally")    #=> false
 
 
 #anagram?("elvis", "lives")    #=> true
 
 
 #anagram?("ezis", "lives")    #=> true
+
+
+
+# Write a method #second_anagram? that iterates over the 
+# first string. For each letter in the first string, 
+# find the index of that letter in the second string 
+# (hint: use Array#find_index) and delete at that index. 
+# The two strings are anagrams if an index is found for every letter and 
+# the second string is empty at the end of the iteration.
+
+# Try varying the length of the input strings. 
+# What are the differences between #first_anagram? and #second_anagram??
+
+
+
+def second_anagram?(str, target)
+    str_arr = str.chars
+    tar_arr = target.chars
+    str_arr.each do |c|                     # "elvishhixs", "lives"
+        idx = tar_arr.find_index(c)
+        return false unless idx
+        tar_arr.delete_at(idx) 
+    end
+    tar_arr.empty?
+end
+
+p second_anagram?("elvis", "lives")    #=> if second_str = ""  => true
+p second_anagram?("gizmo", "sally")    #=> if second_str = "asd"  => false
