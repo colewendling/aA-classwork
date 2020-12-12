@@ -57,5 +57,15 @@ def okay_two_sum?(arr, target_sum)
 end
 
 arr = [2, 5, 3, 6, 4, 7, 8] #  => [2,3,4,5,6,7,8]
-p okay_two_sum?(arr, 6) # => should be true
-p okay_two_sum?(arr, 27) # => should be false
+# p okay_two_sum?(arr, 6) # => should be true
+# p okay_two_sum?(arr, 27) # => should be false
+
+def two_sum?(arr, target_sum)
+    hash = Hash.new(0)      # [2,3,4]   6
+    arr.each{|el| hash[el] += 1} #[2 => 1,  3 => 1, 4 =>1]
+    
+    
+end
+
+p two_sum?(arr, 6) # => should be true
+p two_sum?(arr, 27) # => should be false
