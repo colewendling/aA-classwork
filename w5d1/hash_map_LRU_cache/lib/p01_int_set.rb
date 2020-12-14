@@ -70,7 +70,7 @@ class ResizingIntSet
   attr_reader :count
 
   def initialize(num_buckets = 20)
-    @store = Array.new(num_buckets) { Array.new }
+    @store = Array.new(num_buckets) { Array.new } #[[2,5,1],[7],[32]] 0 , 1 , 2
     @count = 0
   end
 
@@ -94,7 +94,11 @@ class ResizingIntSet
   end
 
   def resize!
-    new_buckets = Array.new(num_buckets * 2) {Array.new}
+    store_reset = self.store
+    self.count = 0
+    self.store = Array.new(num_buckets * 2) {Array.new}
+    # n = num_buckets * 2
+    store_reset.flatten.each { |num| self.insert(num) } #@store[num % n] << num }
   end
   
 end
