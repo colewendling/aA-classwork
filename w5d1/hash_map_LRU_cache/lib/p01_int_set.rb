@@ -103,9 +103,13 @@ class ResizingIntSet
 
   def resize!
     store_reset = self.store
-    self.count = 0
+    #self.count = 0
     self.store = Array.new(num_buckets * 2) {Array.new}
-    store_reset.flatten.each { |num| insert(num) } #@store[num % n] << num }
+    store_reset.flatten.each { |num| self.store[num % num_buckets] << num } #@store[num % n] << num }
+    #store_reset.flatten.each { |num| insert(num) } <--- how specs set up the problem to be solved but you don't need
   end
 
+
 end
+
+
