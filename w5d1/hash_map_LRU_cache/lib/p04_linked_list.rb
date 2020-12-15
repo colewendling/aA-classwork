@@ -20,6 +20,8 @@ class Node
 end
 
 class LinkedList
+  attr_reader :head, :tail
+
   def initialize
     @head = Node.new
     @tail = Node.new
@@ -41,7 +43,7 @@ class LinkedList
   end
 
   def empty?
-
+    self.head.next == self.tail
   end
 
   def get(key)
@@ -60,6 +62,12 @@ class LinkedList
   end
 
   def each
+    current_node = self.first
+    until current_node == self.tail
+      yield current_node.val
+      current_node = current_node.next
+    end
+
   end
 
   # uncomment when you have `each` working and `Enumerable` included
