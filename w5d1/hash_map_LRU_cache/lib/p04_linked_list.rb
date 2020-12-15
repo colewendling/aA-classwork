@@ -20,6 +20,8 @@ class Node
 end
 
 class LinkedList
+  include Enumerable
+
   attr_reader :head, :tail
 
   def initialize
@@ -47,24 +49,40 @@ class LinkedList
   end
 
   def get(key)
+    self.each do |node|
+      return node.val if (node.key == key)
+    end
+
   end
 
   def include?(key)
   end
 
   def append(key, val)
+    new_node = Node.new(key, val)
+    self.last.next = new_node
+    new_node.prev = self.tail.prev
+    self.tail.prev = new_node
+
+    new_node.next = self.tail
+    
+
   end
 
   def update(key, val)
+    self.each do |node|
+      (node.val = val) if (node.key == key)
+    end
   end
 
-  def remove(key)
-  end
+
+def remove(key)
+end
 
   def each
     current_node = self.first
     until current_node == self.tail
-      yield current_node.val
+      yield current_node
       current_node = current_node.next
     end
 
