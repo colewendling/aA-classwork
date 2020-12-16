@@ -1,7 +1,7 @@
 require_relative 'board'
 require_relative 'human_player'
 
-# Phase VI: "Game" - AAO W4D3
+#implement chess game & display cllass
 
 class Game
   attr_reader :board, :display, :current_player, :players
