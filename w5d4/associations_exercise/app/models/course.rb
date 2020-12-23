@@ -13,7 +13,7 @@
 class Course < ApplicationRecord
   
   has_many :enrollments,
-    class_name: 'Enrollment',
+    class_name: 'Enrollment',        #Strategy: 1. belongs_to/has_many pairs before through and source
     foreign_key: :course_id,
     primary_key: :id
 
