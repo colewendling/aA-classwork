@@ -53,7 +53,7 @@ class QuestionFollow < ModelBase
       ORDER BY
         COUNT(*) DESC
       LIMIT
-        :limit
+        :limit --remember symbol
     SQL
 
     questions_data.map { |question_data| Question.new(question_data) }
