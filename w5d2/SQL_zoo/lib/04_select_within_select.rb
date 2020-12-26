@@ -138,7 +138,7 @@ def sparse_continents
       c1.continent NOT IN (
         SELECT
           c2.continent
-        FROM
+        FROM                              --NESTED
           countries c2
         WHERE
           c2.population >= 25000000
