@@ -2,10 +2,12 @@
 
 <ul>
     <% Cat.all.each do |cat| %>
-    <li><%= cat.name %></li>
+    <h1><%= cat.name %></h1>
+    <br>
     <li><%= cat.color %></li>
     <li><%= cat.sex %></li>
     <li><%= cat.age %></li>
+    <br>
     <% end %>
 </ul>
 

@@ -7,3 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+garfield = Cat.create({birth_date: '2015-03-12', color: 'orange', name: 'Garfield', sex: 'M'})
+
+felix = Cat.create({birth_date: '2017-03-12', color: 'brown', name: 'Felix', sex: 'F'})
+
+kinglear = Cat.create({birth_date: '2013-03-12', color: 'black', name: 'King Lear', sex: 'M'})
