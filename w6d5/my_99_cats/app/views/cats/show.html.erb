@@ -1,15 +1,16 @@
-<h1>Show Page for one Cat</h1>
+<h1><%= @cat.name %></h1>
+<table>
 
+    <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+    </tr>
 
+    <% [:age, :birth_date, :color, :sex].each do |attr_name| %>
+    <tr>
+        <td><%= attr_name %></td>
+        <td><%= @cat.send(attr_name) %></td>
+    </tr>
+    <% end %>
 
-
-<ul>
-    
-    <h1><%= @cat.name %></h1>
-    <br>
-    <li><%= @cat.color %></li>
-    <li><%= @cat.sex %></li>
-    <li><%= @cat.age %></li>
-    <br>
- 
-</ul>
+</table>
