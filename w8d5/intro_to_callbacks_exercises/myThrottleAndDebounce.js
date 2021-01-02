@@ -78,8 +78,5 @@ const queryForHelloWorld = () => {
     searchBar.type("d");
 };
 
-queryForHelloWorld();
 
-// Assign searchBar.search to the returned debounced version
-searchBar.search = searchBar.search.myDebounce(500);
 
