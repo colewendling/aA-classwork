@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   before_action :require_logged_in!, only: [:destroy]
   def new
-    redner :new 
+    render :new 
   end
 
   def create
