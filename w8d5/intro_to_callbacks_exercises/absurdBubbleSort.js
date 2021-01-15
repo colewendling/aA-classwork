@@ -40,8 +40,29 @@ function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
         return;
     }
 
-    
+    askIfGreaterThan(arr[i], arr[i + 1], function (isGreaterThan) {
+        if (isGreaterThan) {
+            let firstVal = arr[i];
+            //let secVal = arr[i + 1];
+            //arr[i], arr[i + 1] = arr[i + 1], arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = firstVal;
+            madeAnySwaps = true;
+        }
 
+        innerBubbleSortLoop(
+            arr, i + 1, madeAnySwaps, outerBubbleSortLoop
+        );
+
+            //a & b
+
+            //a = b
+
+            //b = a
+
+            //a, b = b, a
+        
+    });
 
 }
 
