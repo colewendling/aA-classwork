@@ -9,6 +9,16 @@ const reader = readline.createInterface({
 function askIfGreaterThan(el1, el2, callback) {
     // Prompt user to tell us whether el1 > el2; pass true back to the
     // callback if true; else false.
+    reader.question(
+        `Is ${el1} greater than ${el2} ?`,
+        function(answer) {
+            if (answer === "yes") {
+                callback(true);
+            } else {
+                callback(false);
+            }
+        }
+    );
 }
 
 // Once you're done testing askIfGreaterThan with dummy arguments, write this.
