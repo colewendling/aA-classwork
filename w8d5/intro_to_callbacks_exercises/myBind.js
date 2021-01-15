@@ -1,3 +1,14 @@
+
+Function.prototype.myBind = function (context) {
+    return () => this.apply(context);
+};
+
+Function.prototype.myBind = function (context, ...bindArgs) {
+    return (...callArgs) => {
+        return this.apply(context, bindArgs.concat(callArgs));
+    };
+};
+
 class Lamp {
     constructor() {
         this.name = "a lamp";
