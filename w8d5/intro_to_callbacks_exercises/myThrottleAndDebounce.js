@@ -1,3 +1,14 @@
+Function.prototype.myThrottle = function (interval) {
+    let timer = false; //too soon
+    return (...args) => {
+        if (!timer) {
+            timer = true;
+            setTimeout(() => timer = false, interval);
+            this(...args);
+        }
+    }
+}
+
 class Neuron {
     fire() {
         console.log("Firing!");
