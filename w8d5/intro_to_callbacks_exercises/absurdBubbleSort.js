@@ -21,9 +21,6 @@ function askIfGreaterThan(el1, el2, callback) {
     );
 }
 
-
-
-function test()
 // Once you're done testing askIfGreaterThan with dummy arguments, write this.
 function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
     // Do an "async loop":
@@ -73,8 +70,13 @@ function absurdBubbleSort(arr, sortCompletionCallback) {
     function outerBubbleSortLoop(madeAnySwaps) {
         // Begin an inner loop if you made any swaps. Otherwise, call
         // `sortCompletionCallback`.
+        if (madeAnySwaps) {
+            innerBubbleSortLoop(arr, 0, false, outerBubbleSortLoop);
+        } else {
+            sortCompletionCallback(arr);
+        }
     }
-
+    outerBubbleSortLoop(true);
     // Kick the first outer loop off, starting `madeAnySwaps` as true.
 }
 
