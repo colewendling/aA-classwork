@@ -126,7 +126,27 @@ function curriedSum(numArgs) {
     }
 }
 
-console.log(curriedSum(3)(4)(20)(6));
+// using apply
+Function.prototype.curry1 = function (numArgs) {
+    const numbers = [];
+    const fn = this;
+
+    return function _curriedSum(number) {
+        numbers.push(number);
+        if (numbers.length === numArgs) {
+            return fn.apply(null, numbers)
+        } else {
+            return _curriedSum;
+        }
+    }
+};
+
+
+//sumThree;
+console.log(sum2.curry1(4)(1)(49)(27)(6));
+
+
+//console.log(curriedSum(3)(4)(20)(6));
 
 // (9, 5, 6, 7, 8, 43)
 
@@ -164,16 +184,14 @@ f1 = f1(20); // [Function]
 f1 = f1(6); // = 30
 
 // or more briefly:
-console.log(sumThree.curry(3)(4)(20)(6)); // == 30
+//console.log(sumThree.curry(3)(4)(20)(6)); // == 30
 
 
 
 
 
 
-// using apply
-Function.prototype.curry1 = function (numArgs) {
-}
+
 
 /**
  * With ES6 arrow functions
