@@ -95,8 +95,8 @@ markov.says.myBind1(pavlov, "meow")("Markov");
 // true
 
 
-Function.prototype.curry = function (numArgs) {
-    let args = [];
+Function.prototype.curry = function (numArgs) {  
+    let args = []; // 1. empty arr for args
 
     return function curriedSum(arg) {
         args.push(arg);
@@ -114,10 +114,19 @@ Function.prototype.curry = function (numArgs) {
 
 
 function curriedSum(numArgs) {
+    const numbers = [];
 
+    return function _curriedSum(number) {
+        numbers.push(number);
+        if (numbers.length === numArgs) {
+            return numbers.reduce((acc, el) => acc + el) 
+        } else {
+            return _curriedSum;
+        }
+    }
 }
 
-
+console.log(curriedSum(3)(4)(20)(6));
 
 // (9, 5, 6, 7, 8, 43)
 
