@@ -199,7 +199,19 @@ f1 = f1(6); // = 30
  * An arrow function does not have its own `this`,
  * the `this` value of the enclosing execution context is used.
  */
-Function.prototype.curry2 = function (nArg) {
+Function.prototype.curry2 = function (numArgs) {
+    const numbers = [];
+    
+
+    return  _curriedSum = (number) => {
+        numbers.push(number);
+        if (numbers.length === numArgs) {
+            return this(...numbers);
+        } else {
+            return _curriedSum;
+        }
+    }
 }
 
+console.log(sum2.curry2(4)(1)(49)(27)(6));
 
