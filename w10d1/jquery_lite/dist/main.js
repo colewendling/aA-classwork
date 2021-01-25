@@ -10,6 +10,6 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-eval("throw new Error(\"Module parse failed: Unexpected token (1:12)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n> const window.$l = function (arg) {};\");\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("window.$l = function (arg) {\n\n    return Array.from(document.querySelectorAll(arg));\n\n};\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
 /******/ })()
 ;

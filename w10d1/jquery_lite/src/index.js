@@ -1,1 +1,7 @@
-const window.$l = function (arg) {};
+window.$l = function (arg) {
+
+    return Array.from(document.querySelectorAll(arg));
+
+};
+
+
