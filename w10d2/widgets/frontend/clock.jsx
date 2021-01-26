@@ -2,6 +2,9 @@ import React from 'react';
 
 class Clock extends React.Component{
   constructor(props){
+    super(props); //need to put this if you are using this
+
+
     this.state = { time: new Date() };
     this.tick = this.tick.bind(this);
   }
@@ -16,8 +19,11 @@ class Clock extends React.Component{
 
 
   render(){
-    return (
+    return (      // toString(this.state.time)
+      <>
       <h1>Clock</h1>
+        <h2>{this.state.time.toString()}</h2>
+      </>
     )
   }
 }
