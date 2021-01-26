@@ -27,6 +27,16 @@ DOMNodeCollection.protoype.append = function(arg){
 
             let inner = document.getElementsByTagName(node[0])[0].innerHTML;
             inner += document.getElementsByTagName(arg[0])[0].outerHTML;
+            document.getElementsByTagName(node[0])[0].innerHTML = inner;
+        })
+    }else if(Object.isString(arg)){
+            this.collection.forEach((node) => {
+                //append arg.outerhtml to node.innerhtml   // 'div'
+
+                let inner = document.getElementsByTagName(node[0])[0].innerHTML;
+                // inner += document.getElementsByTagName(arg)[0].outerHTML;
+                inner += arg;
+                document.getElementsByTagName(node[0])[0].innerHTML = inner;
         })
     }else if()
 }

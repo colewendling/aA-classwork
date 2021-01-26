@@ -13,9 +13,9 @@
 /*!************************************!*\
   !*** ./src/dom_node_collection.js ***!
   \************************************/
-/***/ ((module) => {
+/***/ (() => {
 
-eval("class DOMNodeCollection {\n    constructor(array) {\n        this.collection = array;\n    }\n};\n\n\nmodule.exports = DOMNodeCollection;\n\n\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
+eval("throw new Error(\"Module parse failed: Unexpected token (41:13)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n|                 document.getElementsByTagName(node[0])[0].innerHTML = inner;\\n|         })\\n>     }else if()\\n| }\\n| \");\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
 
 /***/ })
 
