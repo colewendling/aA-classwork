@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-    entry: './widgets.jsx',
+    entry: './frontend/widgets.jsx',
     output: {
         filename: './bundle.js',
         path: path.resolve(__dirname) // so npm start doesn't make dist folders for bundle.js bundle.js.map
