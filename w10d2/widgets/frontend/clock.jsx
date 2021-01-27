@@ -14,15 +14,19 @@ class Clock extends React.Component{
   }
 
   componentDidMount(){
-    this.whatever = setInterval(this.tick, 1000);
+    this.interval = setInterval(this.tick, 1000);
   }
-
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   render(){
     return (      // toString(this.state.time)
       <>
-      <h1>Clock</h1>
-        <h2>{this.state.time.toString()}</h2>
+      <h1 className="clock">
+        Clock
+        <p>{this.state.time.toLocaleString()}</p>
+      </h1>
       </>
     )
   }
