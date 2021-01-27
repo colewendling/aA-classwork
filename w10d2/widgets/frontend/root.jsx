@@ -3,10 +3,10 @@ import Clock from './clock';
 import Tabs from './tabs';
 
 const Root = () => {
-    const tabInfoArr = [{title: "one", content: "I am the first"},
-                        {title: "two", content: "Second pane here"},
-                        {title: "three", content: "Third pane here"},
-                        {title: "will this show up", content: "FOurth"}
+    const tabInfoArr = [{title: "one", content: "I am the first Tab."},
+                        {title: "two", content: "I am the second Tab."},
+                        {title: "three", content: "I am the third Tab."},
+                        {title: "four", content: "I am the fourth Tab."}
                        ];
     return(<div>
                 <Clock />

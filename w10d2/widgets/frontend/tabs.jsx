@@ -4,7 +4,7 @@ import TabItem from './tab_item';
 class Tabs extends React.Component{
   constructor(props){
     super(props);
-    this.props = props;
+    //this.props = props;   ---- don't need -- react does this for us
     this.state = { component: 0 };
     this.updateState = this.updateState.bind(this);
   }

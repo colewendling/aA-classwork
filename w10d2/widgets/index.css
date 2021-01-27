@@ -5,6 +5,11 @@ h1 {
     
 }
 
+.bold {
+  font-weight: bold;
+  color: blue;
+}
+
 .clock{
   font-size: 28px;
   color: white;
