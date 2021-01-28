@@ -1,10 +1,16 @@
-export const RECIEVE_TODO = "RECIEVE_TODO"
+export const RECEIVE_TODO = "RECEIVE_TODO"
+export const RECEIVE_TODOS = "RECEIVE_TODOS"
+
+export const receiveTodos = (todos) => {
+    return {
+      type: RECEIVE_TODOS,
+      todos,
+    };
+};
 
 export const receiveTodo = (todo) => {
     return {
-        type: RECIEVE_TODO,
-        title, // title: title
-        body, // body: body
-        done: false
-    }
-}
+      type: RECEIVE_TODO,
+      todo,
+    };
+};
