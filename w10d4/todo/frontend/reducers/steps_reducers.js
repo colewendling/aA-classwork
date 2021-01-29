@@ -1,9 +1,10 @@
 import { RECEIVE_STEP, RECEIVE_STEPS, REMOVE_STEP } from '../actions/step_actions';
 
 const stepsReducer = (state = {}, action) => {
-  let nextState;
+  let nextState = {};
   Object.freeze(state);
-
+  console.log(action);
+  debugger
   switch (action.type) {
     case RECEIVE_STEPS:
       action.steps.forEach( step => {

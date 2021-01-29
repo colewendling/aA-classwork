@@ -1,7 +1,7 @@
-import { RECEIVE_TODO, RECEIVE_TODOS, REMOVE_TODO } from '../actions/todo_actions';
+import { RECEIVE_TODO, RECEIVE_TODOS, REMOVE_TODO, TODO_ERROR } from '../actions/todo_actions';
 
 const todosReducer = (state = {}, action) => {
-  let nextState;
+  let nextState = {};
   Object.freeze(state);
 
   switch (action.type) {
@@ -22,6 +22,9 @@ const todosReducer = (state = {}, action) => {
       nextState = Object.assign({}, state);
       delete nextState[action.todo.id];
       return nextState;
+
+    // case TODO_ERROR:
+    //   alert(action.error)
 
     default:
       return state;

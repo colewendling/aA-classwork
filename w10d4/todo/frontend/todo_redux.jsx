@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { receiveTodo, removeTodo, receiveTodos } from './actions/todo_actions';
+import { receiveTodo, removeTodo, receiveTodos, todoError } from './actions/todo_actions';
 import { receiveStep, removeStep, receiveSteps } from './actions/step_actions';//change to steps
 
 
@@ -16,4 +16,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.receiveStep = receiveStep;
     window.receiveSteps = receiveSteps;
     window.removeStep = removeStep;
+    window.todoError = todoError;
 });
