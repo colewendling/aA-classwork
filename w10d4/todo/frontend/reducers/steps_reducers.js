@@ -4,7 +4,6 @@ const stepsReducer = (state = {}, action) => {
   let nextState = {};
   Object.freeze(state);
   console.log(action);
-  debugger
   switch (action.type) {
     case RECEIVE_STEPS:
       action.steps.forEach( step => {
