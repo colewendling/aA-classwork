@@ -17,6 +17,7 @@ class TodoList extends React.Component {
         <ul>
           {todoItems}
         </ul>
+        <TodoForm recieveTodo={ recieveTodo }>
       </div>
     )
   }
