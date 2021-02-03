@@ -1,15 +1,5 @@
 import React from 'react';
-
-// export const pokemonItems = pokemon.map(poke => (
-//     <PokemonIndexItem key={poke.id} pokemon={poke} />
-//     render (){
-//        return() {
-//             <section className="pokedex">
-//                 <ul>{pokemonItems}</ul>
-//             </section>
-//     };
-//     }
-// );
+import { Link } from "react-router-dom";
 
 class PokemonIndexItem extends React.Component {
     constructor(props) {
@@ -18,9 +8,10 @@ class PokemonIndexItem extends React.Component {
 
     render() {
         return (
-            <section className="pokedex">
-                 <ul>{pokemonItems}</ul>
-            </section>
+            <li>
+                <Link to={`/pokemon/${this.props.pokemon.id}`}>
+                </Link>
+            </li>
         )
     }
 }
